@@ -1213,12 +1213,13 @@ img {
 .unique-stats-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.15rem;
+  gap: 1.25rem;
 }
 
 @media (max-width: 992px) {
   .unique-stats-container {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 }
 
@@ -1229,49 +1230,80 @@ img {
 }
 
 .stat-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 1.1rem 1.15rem;
+  background: linear-gradient(165deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 20px;
+  padding: 1.25rem 1.35rem;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 20px -2px rgba(10, 11, 14, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
   display: flex;
   align-items: center;
-  gap: 1rem;
-  transition: all var(--transition-smooth);
-}
-
-.stat-card:hover {
-  transform: translateY(-5px);
-  border-color: #cbd5e1;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  gap: 1.15rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  cursor: default;
 }
 
 .stat-card::before {
-  display: none;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0a0b0e 0%, #475569 50%, #0a0b0e 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: skewX(-20deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(15, 23, 42, 0.25);
+  box-shadow: 0 20px 35px -8px rgba(10, 11, 14, 0.12), 0 0 0 1px rgba(15, 23, 42, 0.08);
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-card:hover::after {
+  left: 140%;
+  transition: left 0.75s ease-in-out;
 }
 
 .stat-icon-wrapper {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0a0b0e 0%, #1e2230 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.35rem;
-  color: #0a0b0e;
+  font-size: 1.4rem;
+  color: #ffffff;
   flex-shrink: 0;
-  transition: all var(--transition-smooth);
+  box-shadow: 0 8px 18px rgba(10, 11, 14, 0.18);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, background 0.4s ease;
 }
 
 .stat-card:hover .stat-icon-wrapper {
-  background: #0a0b0e;
-  color: #ffffff;
-  border-color: #0a0b0e;
-  transform: scale(1.08);
+  transform: scale(1.12) rotate(6deg);
+  box-shadow: 0 12px 24px rgba(10, 11, 14, 0.28);
+  background: linear-gradient(135deg, #151722 0%, #0a0b0e 100%);
 }
 
 .stat-content {
@@ -1279,37 +1311,48 @@ img {
 }
 
 .stat-card .stat-number {
-  font-size: 1.85rem;
+  font-size: 2rem;
   font-weight: 900;
   font-family: var(--font-heading);
   color: #0a0b0e !important;
-  line-height: 1.1;
-  margin-bottom: 0.2rem;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.25rem;
   background: none !important;
   -webkit-background-clip: unset !important;
   -webkit-text-fill-color: #0a0b0e !important;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover .stat-number {
+  transform: translateX(2px);
 }
 
 .stat-card .stat-label {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: #64748b;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
+  transition: color 0.3s ease;
+}
+
+.stat-card:hover .stat-label {
+  color: #334155;
 }
 
 .stat-bar {
-  width: 26px;
+  width: 32px;
   height: 3px;
   background: #e2e8f0;
-  border-radius: 3px;
-  margin-top: 0.45rem;
-  transition: width 0.3s ease, background 0.3s ease;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1), background 0.45s ease;
 }
 
 .stat-card:hover .stat-bar {
   width: 100%;
-  background: #0a0b0e;
+  background: linear-gradient(90deg, #0a0b0e 0%, #475569 50%, #0a0b0e 100%);
 }
 
 /* Gallery Grid & Lightbox */
