@@ -1230,12 +1230,12 @@ img {
 
 .stat-card {
   background: #ffffff;
-  border: 1px solid var(--border-glass);
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: 1.1rem 1.15rem;
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -1244,38 +1244,34 @@ img {
 
 .stat-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(229, 36, 44, 0.35);
-  box-shadow: 0 12px 28px rgba(229, 36, 44, 0.15);
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 
 .stat-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 4px; height: 100%;
-  background: var(--gradient-cyan-blue);
-  border-radius: 4px 0 0 4px;
+  display: none;
 }
 
 .stat-icon-wrapper {
   width: 48px;
   height: 48px;
   border-radius: 14px;
-  background: rgba(229, 36, 44, 0.08);
-  border: 1px solid rgba(229, 36, 44, 0.2);
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.35rem;
-  color: var(--primary-cyan);
+  color: #0a0b0e;
   flex-shrink: 0;
   transition: all var(--transition-smooth);
 }
 
 .stat-card:hover .stat-icon-wrapper {
-  background: var(--gradient-cyan-blue);
+  background: #0a0b0e;
   color: #ffffff;
-  transform: scale(1.08) rotate(4deg);
+  border-color: #0a0b0e;
+  transform: scale(1.08);
 }
 
 .stat-content {
@@ -1286,12 +1282,12 @@ img {
   font-size: 1.85rem;
   font-weight: 900;
   font-family: var(--font-heading);
-  color: #0a0b0e;
+  color: #0a0b0e !important;
   line-height: 1.1;
   margin-bottom: 0.2rem;
-  background: linear-gradient(135deg, #0a0b0e 0%, #e5242c 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #0a0b0e !important;
 }
 
 .stat-card .stat-label {
@@ -1305,7 +1301,7 @@ img {
 .stat-bar {
   width: 26px;
   height: 3px;
-  background: rgba(229, 36, 44, 0.3);
+  background: #e2e8f0;
   border-radius: 3px;
   margin-top: 0.45rem;
   transition: width 0.3s ease, background 0.3s ease;
@@ -1313,7 +1309,7 @@ img {
 
 .stat-card:hover .stat-bar {
   width: 100%;
-  background: var(--primary-cyan);
+  background: #0a0b0e;
 }
 
 /* Gallery Grid & Lightbox */
