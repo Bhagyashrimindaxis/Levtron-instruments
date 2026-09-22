@@ -157,11 +157,11 @@ img {
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--primary-cyan);
-  background: rgba(229, 36, 44, 0.08);
+  color: #334155;
+  background: #f1f5f9;
   padding: 0.35rem 1.1rem;
   border-radius: 50px;
-  border: 1px solid rgba(229, 36, 44, 0.22);
+  border: 1px solid #e2e8f0;
   margin-bottom: 0.65rem;
 }
 
@@ -760,13 +760,16 @@ img {
 }
 
 .flagship-products-section .section-title .subtitle {
-  color: #ff8080;
-  background: rgba(229, 36, 44, 0.2);
-  border: 1px solid rgba(229, 36, 44, 0.45);
-  box-shadow: 0 0 15px rgba(229, 36, 44, 0.25);
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: none;
   font-size: 0.74rem;
   padding: 0.22rem 0.8rem;
   margin-bottom: 0.35rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .flagship-products-section .section-title h2 {
