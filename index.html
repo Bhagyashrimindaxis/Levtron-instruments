@@ -423,17 +423,17 @@
     .stat-card {
       background: linear-gradient(145deg, #0a0b0e 0%, #151724 65%, #0a0b0e 100%) !important;
       border: 1px solid rgba(255, 255, 255, 0.14) !important;
-      border-radius: 20px !important;
-      padding: 1.35rem 1.4rem !important;
+      border-radius: 14px !important;
+      padding: 0.85rem 1.1rem 0.75rem !important;
       position: relative !important;
       overflow: hidden !important;
-      box-shadow: 0 10px 30px rgba(10, 11, 14, 0.18), 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 8px 20px rgba(10, 11, 14, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
       display: flex !important;
       flex-direction: column !important;
       justify-content: space-between !important;
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease !important;
       cursor: default !important;
-      min-height: 165px !important;
+      min-height: auto !important;
     }
 
     .stat-card::before {
@@ -442,7 +442,7 @@
       top: 0 !important;
       left: 0 !important;
       right: 0 !important;
-      height: 3px !important;
+      height: 2.5px !important;
       background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0.3) 100%) !important;
       opacity: 0.7 !important;
     }
@@ -461,9 +461,9 @@
     }
 
     .stat-card:hover {
-      transform: translateY(-8px) scale(1.02) !important;
+      transform: translateY(-5px) !important;
       border-color: rgba(255, 255, 255, 0.35) !important;
-      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.35) !important;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3) !important;
     }
 
     .stat-card:hover::after {
@@ -475,54 +475,53 @@
       display: flex !important;
       align-items: center !important;
       justify-content: space-between !important;
-      margin-bottom: 1rem !important;
+      margin-bottom: 0.55rem !important;
       width: 100% !important;
     }
 
     .stat-icon-wrapper {
-      width: 48px !important;
-      height: 48px !important;
-      border-radius: 14px !important;
+      width: 36px !important;
+      height: 36px !important;
+      border-radius: 10px !important;
       background: rgba(255, 255, 255, 0.08) !important;
       border: 1px solid rgba(255, 255, 255, 0.16) !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      font-size: 1.35rem !important;
+      font-size: 1.05rem !important;
       color: #ffffff !important;
       flex-shrink: 0 !important;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
-      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.35s ease, border-color 0.35s ease !important;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2) !important;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.35s ease !important;
     }
 
     .stat-card:hover .stat-icon-wrapper {
-      transform: scale(1.12) rotate(6deg) !important;
+      transform: scale(1.1) rotate(5deg) !important;
       background: rgba(255, 255, 255, 0.16) !important;
       border-color: rgba(255, 255, 255, 0.4) !important;
-      color: #ffffff !important;
     }
 
     .stat-live-tag {
       display: inline-flex !important;
       align-items: center !important;
-      gap: 5px !important;
-      font-size: 0.68rem !important;
+      gap: 4px !important;
+      font-size: 0.62rem !important;
       font-weight: 700 !important;
       color: #e2e8f0 !important;
       background: rgba(255, 255, 255, 0.08) !important;
       border: 1px solid rgba(255, 255, 255, 0.18) !important;
-      padding: 0.18rem 0.55rem !important;
+      padding: 0.12rem 0.45rem !important;
       border-radius: 20px !important;
-      letter-spacing: 0.5px !important;
+      letter-spacing: 0.4px !important;
       text-transform: uppercase !important;
     }
 
     .live-pulse {
-      width: 6px !important;
-      height: 6px !important;
+      width: 5px !important;
+      height: 5px !important;
       border-radius: 50% !important;
       background: #10b981 !important;
-      box-shadow: 0 0 6px #10b981 !important;
+      box-shadow: 0 0 5px #10b981 !important;
       animation: pulseGlow 1.8s infinite !important;
     }
 
@@ -536,13 +535,13 @@
     }
 
     .stat-card .stat-number {
-      font-size: 2.15rem !important;
+      font-size: 1.65rem !important;
       font-weight: 900 !important;
       font-family: var(--font-heading) !important;
       color: #ffffff !important;
-      line-height: 1 !important;
-      letter-spacing: -0.5px !important;
-      margin-bottom: 0.35rem !important;
+      line-height: 1.1 !important;
+      letter-spacing: -0.3px !important;
+      margin-bottom: 0.15rem !important;
       background: none !important;
       -webkit-background-clip: unset !important;
       -webkit-text-fill-color: #ffffff !important;
@@ -550,16 +549,16 @@
     }
 
     .stat-card:hover .stat-number {
-      transform: translateX(3px) !important;
+      transform: translateX(2px) !important;
     }
 
     .stat-card .stat-label {
-      font-size: 0.78rem !important;
+      font-size: 0.72rem !important;
       font-weight: 700 !important;
       color: #94a3b8 !important;
       text-transform: uppercase !important;
-      letter-spacing: 0.7px !important;
-      margin-bottom: 0.4rem !important;
+      letter-spacing: 0.5px !important;
+      margin-bottom: 0.25rem !important;
       transition: color 0.3s ease !important;
     }
 
@@ -568,11 +567,11 @@
     }
 
     .stat-bar {
-      width: 32px !important;
-      height: 3px !important;
+      width: 24px !important;
+      height: 2.5px !important;
       background: rgba(255, 255, 255, 0.15) !important;
-      border-radius: 4px !important;
-      margin-top: 0.35rem !important;
+      border-radius: 3px !important;
+      margin-top: 0.25rem !important;
       transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1), background 0.45s ease !important;
     }
 
