@@ -1775,9 +1775,9 @@ textarea.form-control {
 }
 
 .client-reviews-section .section-title .subtitle {
-  color: var(--primary-cyan);
-  background: rgba(229, 36, 44, 0.08);
-  border: 1px solid rgba(229, 36, 44, 0.2);
+  color: #334155;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
   box-shadow: none;
 }
 
@@ -1786,9 +1786,10 @@ textarea.form-control {
 }
 
 .client-reviews-section .section-title h2 span {
-  background: linear-gradient(90deg, #e5242c 0%, #b91c1c 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: #0a0b0e;
+  color: #0a0b0e;
   display: inline-block;
 }
 
