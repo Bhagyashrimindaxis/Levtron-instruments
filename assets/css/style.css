@@ -209,9 +209,10 @@ img {
 }
 
 .banner-title h2 span {
-  background: linear-gradient(90deg, #ff4d4d 0%, #e5242c 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
+  color: #ffffff !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #ffffff !important;
 }
 
 .banner-title p {
