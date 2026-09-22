@@ -14,8 +14,8 @@
   <div id="header-placeholder"></div>
 
   <!-- Page Title Banner -->
-  <section class="page-title-banner" style="padding: 4.5rem 0 3.5rem; background: linear-gradient(135deg, rgba(10, 11, 14, 0.90) 0%, rgba(21, 23, 32, 0.92) 100%), url('assets/img/about_factory.jpg') center/cover; position: relative;">
-    <div class="container" style="text-align: center;">
+  <section class="page-title-banner" style="padding: 4.5rem 0 4.5rem; background: linear-gradient(135deg, rgba(10, 11, 14, 0.90) 0%, rgba(21, 23, 32, 0.92) 100%), url('assets/img/about_factory.jpg') center/cover; position: relative; overflow: hidden;">
+    <div class="container" style="text-align: center; position: relative; z-index: 2;">
       <div class="section-title banner-title" style="margin-bottom: 0;">
         <span class="subtitle">Corporate Profile</span>
         <h2>About Levtron Instruments</h2>
@@ -23,6 +23,34 @@
           Pioneering level measurement technology with precision engineering, quality craftsmanship, and customer commitment.
         </p>
       </div>
+    </div>
+
+    <!-- Multi-Layered Animated Wave Curves at Bottom -->
+    <div class="hero-waves-wrapper">
+      <svg class="hero-waves-svg" viewBox="0 0 2880 120" fill="none" xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="waveGlowRibbon" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="rgba(255, 255, 255, 0.95)" />
+            <stop offset="60%" stop-color="rgba(255, 255, 255, 0.5)" />
+            <stop offset="100%" stop-color="rgba(255, 255, 255, 0.2)" />
+          </linearGradient>
+        </defs>
+        <!-- Wave 1 (Back diffuse wave) -->
+        <path class="wave-layer wave-layer-back"
+          d="M0,45 C240,95 480,10 720,55 C960,100 1200,15 1440,45 C1680,95 1920,10 2160,55 C2400,100 2640,15 2880,45 L2880,200 L0,200 Z"
+          fill="rgba(255, 255, 255, 0.25)" />
+
+        <!-- Wave 2 (Middle prominent curvy glowing white ribbon) -->
+        <path class="wave-layer wave-layer-middle"
+          d="M0,30 C200,85 440,5 720,50 C1000,95 1240,10 1440,30 C1640,85 1880,5 2160,50 C2440,95 2680,10 2880,30 L2880,200 L0,200 Z"
+          fill="url(#waveGlowRibbon)" stroke="rgba(255, 255, 255, 0.98)" stroke-width="3" />
+
+        <!-- Wave 3 (Front solid base wave) -->
+        <path class="wave-layer wave-layer-front"
+          d="M0,60 C260,15 520,90 780,40 C1040,10 1280,80 1440,60 C1700,15 1960,90 2220,40 C2480,10 2720,80 2880,60 L2880,200 L0,200 Z"
+          fill="#ffffff" />
+      </svg>
     </div>
   </section>
 
