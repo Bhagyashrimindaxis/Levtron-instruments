@@ -2968,29 +2968,35 @@ textarea.form-control {
 
 .footer-contact-item {
   display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding-bottom: 1.05rem;
+  flex-direction: column;
+  padding-bottom: 0.85rem;
 }
 
 .footer-contact-item.with-divider {
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  margin-bottom: 1.05rem;
+  margin-bottom: 0.85rem;
 }
 
-.footer-contact-item .contact-icon {
+.contact-sub-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.contact-sub-header .contact-icon {
   color: var(--primary-cyan);
-  font-size: 1.2rem;
-  margin-top: 3px;
-  flex-shrink: 0;
+  font-size: 0.95rem;
 }
 
 .footer-contact-item .contact-val {
   color: #ffffff;
   font-weight: 600;
   font-size: 1.02rem;
-  line-height: 1.65;
-  flex: 1;
+  line-height: 1.6;
 }
 
 .footer-contact-item .contact-val a {
@@ -3004,10 +3010,10 @@ textarea.form-control {
 }
 
 .footer-contact-item .address-text {
-  font-weight: 600;
-  font-size: 0.98rem;
-  line-height: 1.65;
-  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #cbd5e1;
 }
 
 .footer-map-wrapper {
@@ -3021,56 +3027,54 @@ textarea.form-control {
 }
 
 .footer-bottom-bar {
-  background: #020304;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.75rem 0;
+  background: transparent;
+  padding: 1.75rem 0 2rem;
 }
 
-.footer-bottom-bar .container {
+.footer-bottom-card {
+  background: #0f1422;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 1.15rem 1.5rem;
+  text-align: center;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 0.35rem;
+  margin: 0 auto;
+  max-width: 100%;
 }
 
-.footer-bottom-bar .copyright-text {
+.footer-bottom-card .copyright-text {
   color: #94a3b8;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.footer-bottom-card .copyright-text strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.footer-bottom-card .dev-credits {
+  margin: 0;
   font-size: 0.88rem;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.footer-bottom-bar .copyright-text strong {
-  color: #ffffff;
-}
-
-.footer-bottom-bar .dev-credits {
-  margin: 0;
-  font-size: 0.85rem;
   color: #64748b;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-.footer-bottom-bar .dev-credits a {
-  color: #ffffff;
+.footer-bottom-card .dev-credits a {
+  color: #00d2ff;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.footer-bottom-bar .dev-credits a:hover {
-  color: var(--primary-cyan);
+.footer-bottom-card .dev-credits a:hover {
+  color: #ffffff;
   text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .footer-bottom-bar .container {
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    gap: 0.35rem;
-  }
 }
 
 /* Floating Action Buttons Stack */
