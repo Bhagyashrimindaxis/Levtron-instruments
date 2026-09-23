@@ -4104,3 +4104,392 @@ textarea.form-control {
   70% { transform: scale(1.35); opacity: 0; }
   100% { transform: scale(1.35); opacity: 0; }
 }
+
+/* ==========================================================================
+   EXECUTIVE 2-COLUMN SPLIT CONTACT PAGE DESIGN (MATCHING REFERENCE TEMPLATE)
+   ========================================================================== */
+.contact-page-section {
+  background-color: #f1f5f9;
+}
+
+.ups-contact-grid {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Brand Header on Left */
+.ups-brand-header {
+  margin-bottom: 1.5rem;
+}
+
+.ups-brand-title {
+  font-size: 1.85rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: #0b1120;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+.ups-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #d97706;
+}
+
+.ups-brand-badge i {
+  color: #f59e0b;
+}
+
+/* Left Contact Cards Stack */
+.ups-contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.ups-contact-card {
+  background: #111726;
+  border-radius: 16px;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ups-contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+}
+
+/* Card Left Accent Borders */
+.ups-contact-card.card-plant {
+  border-left: 5px solid #e5242c;
+}
+
+.ups-contact-card.card-phone {
+  border-left: 5px solid #00d2ff;
+}
+
+.ups-contact-card.card-email {
+  border-left: 5px solid #e5242c;
+}
+
+.ups-contact-card.card-social {
+  border-left: 5px solid #22c55e;
+}
+
+.ups-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.ups-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.ups-card-icon.red {
+  background: rgba(229, 36, 44, 0.18);
+  color: #ef4444;
+}
+
+.ups-card-icon.cyan {
+  background: rgba(0, 210, 255, 0.18);
+  color: #00d2ff;
+}
+
+.ups-card-icon.green {
+  background: rgba(34, 197, 94, 0.18);
+  color: #22c55e;
+}
+
+.ups-card-info {
+  flex: 1;
+}
+
+.ups-card-info h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+}
+
+.ups-card-info p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.ups-card-links {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+.ups-card-links a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ups-card-links a:hover {
+  color: #00d2ff;
+}
+
+.ups-map-holder {
+  margin-top: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.ups-map-holder iframe {
+  display: block;
+}
+
+.ups-card-social-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.ups-social-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ups-social-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ups-soc-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff !important;
+  font-size: 1.15rem;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ups-soc-btn.whatsapp {
+  background: #25d366;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
+.ups-soc-btn.facebook {
+  background: #1877f2;
+  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
+}
+
+.ups-soc-btn:hover {
+  transform: scale(1.12);
+}
+
+/* Right Column: Form Card */
+.ups-form-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2.5rem 2.8rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.ups-form-gradient-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #111827 0%, #e5242c 50%, #00d2ff 100%);
+}
+
+.ups-form-header {
+  margin-bottom: 2rem;
+}
+
+.ups-form-header h3 {
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.ups-form-header p {
+  color: #64748b;
+  font-size: 0.96rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.ups-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 1.5rem;
+}
+
+.ups-field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.ups-field-group.full-width {
+  grid-column: span 2;
+}
+
+.ups-field-group label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.45rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ups-field-group label i {
+  color: #0284c7;
+  font-size: 0.85rem;
+}
+
+.ups-field-group label .req {
+  color: #ef4444;
+}
+
+.ups-input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ups-input-box .input-icon {
+  position: absolute;
+  left: 14px;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ups-input-box input,
+.ups-input-box select,
+.ups-field-group textarea {
+  width: 100%;
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.8rem 1rem 0.8rem 2.6rem;
+  font-size: 0.95rem;
+  color: #0f172a;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+.ups-input-box select {
+  padding-left: 1.1rem;
+  cursor: pointer;
+  appearance: auto;
+}
+
+.ups-field-group textarea {
+  padding: 0.85rem 1rem;
+  resize: vertical;
+  min-height: 110px;
+}
+
+.ups-input-box input:focus,
+.ups-input-box select:focus,
+.ups-field-group textarea:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: #e5242c;
+  box-shadow: 0 0 0 4px rgba(229, 36, 44, 0.12);
+}
+
+.ups-form-submit {
+  margin-top: 1.75rem;
+}
+
+.ups-submit-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, #111827 0%, #b91c1c 65%, #e5242c 100%);
+  color: #ffffff !important;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(229, 36, 44, 0.35);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ups-submit-btn:hover {
+  background: linear-gradient(135deg, #0b1120 0%, #dc2626 50%, #ef4444 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(229, 36, 44, 0.5);
+}
+
+.ups-submit-btn i:last-child {
+  transition: transform 0.3s ease;
+}
+
+.ups-submit-btn:hover i:last-child {
+  transform: translateX(5px);
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+  .ups-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .ups-form-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .ups-form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ups-field-group.full-width {
+    grid-column: span 1;
+  }
+}
