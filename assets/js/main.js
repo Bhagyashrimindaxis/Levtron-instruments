@@ -845,8 +845,187 @@ function initMissionVisionAnimation() {
 
 // Call on startup
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initMissionVisionAnimation);
+  document.addEventListener('DOMContentLoaded', () => {
+    initMissionVisionAnimation();
+    initQuoteModal();
+  });
 } else {
   initMissionVisionAnimation();
+  initQuoteModal();
 }
+
+// ==========================================================================
+// UNIVERSAL REQUEST A QUOTE MODAL FORM SYSTEM
+// ==========================================================================
+function initQuoteModal() {
+  if (!document.getElementById('quoteModal')) {
+    const modalHTML = `
+      <div class="modal-backdrop" id="quoteModal">
+        <div class="modal-box quote-modal-box">
+          <button class="modal-close" id="quoteModalClose" onclick="closeQuoteModal()" aria-label="Close Modal"><i class="fas fa-times"></i></button>
+          
+          <div class="quote-modal-header">
+            <span class="quote-modal-tag"><i class="fas fa-file-invoice" style="color: #e5242c;"></i> Instant Quotation</span>
+            <h3 id="quoteModalTitle" class="quote-modal-heading">Request a Quote</h3>
+            <p class="quote-modal-sub">Fill out your requirements below to receive a formal price quote & technical datasheet from Levtron engineers.</p>
+          </div>
+
+          <form id="quoteModalForm" onsubmit="handleQuoteModalSubmit(event)">
+            <div class="form-group" style="margin-bottom: 0.95rem;">
+              <label for="quoteProduct" style="display: block; font-size: 0.85rem; font-weight: 700; color: #1e293b; margin-bottom: 0.35rem;">Instrument / Product Name *</label>
+              <input type="text" id="quoteProduct" class="form-control" placeholder="e.g. RF Admittance Level Switch" required style="width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.92rem; font-weight: 600; color: #0f172a; background: #f8fafc;">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.95rem; margin-bottom: 0.95rem;" class="quote-form-grid">
+              <div class="form-group">
+                <label for="quoteName" style="display: block; font-size: 0.85rem; font-weight: 700; color: #1e293b; margin-bottom: 0.35rem;">Full Name *</label>
+                <input type="text" id="quoteName" class="form-control" placeholder="e.g. Rajesh Sharma" required style="width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.92rem;">
+              </div>
+              <div class="form-group">
+                <label for="quotePhone" style="display: block; font-size: 0.85rem; font-weight: 700; color: #1e293b; margin-bottom: 0.35rem;">Mobile / WhatsApp *</label>
+                <input type="tel" id="quotePhone" class="form-control" placeholder="+91 9876543210" required style="width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.92rem;">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.95rem; margin-bottom: 0.95rem;" class="quote-form-grid">
+              <div class="form-group">
+                <label for="quoteEmail" style="display: block; font-size: 0.85rem; font-weight: 700; color: #1e293b; margin-bottom: 0.35rem;">Email Address *</label>
+                <input type="email" id="quoteEmail" class="form-control" placeholder="name@company.com" required style="width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.92rem;">
+              </div>
+              <div class="form-group">
+                <label for="quoteCompany" style="display: block; font-size: 0.85rem; font-weight: 700; color: #1e293b; margin-bottom: 0.35rem;">Company Name</label>
+                <input type="text" id="quoteCompany" class="form-control" placeholder="e.g. Apex Process Industries" style="width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.92rem;">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.15rem;">
+              <label for="quoteMessage" style="display: block; font-size: 0.85rem; font-weight: 700; color: #1e293b; margin-bottom: 0.35rem;">Quantity / Technical Details</label>
+              <textarea id="quoteMessage" class="form-control" rows="2" placeholder="Quantity, process fluid/solid, tank height, operating temp/pressure..." style="width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.92rem; resize: vertical;"></textarea>
+            </div>
+
+            <div id="quoteSuccessMsg" style="display: none; padding: 0.85rem; background: #ecfdf5; border: 1px solid #10b981; border-radius: 8px; color: #065f46; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem; text-align: center;">
+              <i class="fas fa-check-circle" style="color: #10b981; margin-right: 6px;"></i>
+              Quotation request submitted! Our engineering team will contact you shortly.
+            </div>
+
+            <div style="display: flex; gap: 0.75rem;">
+              <button type="submit" class="btn btn-primary" id="quoteSubmitBtn" style="flex: 1; justify-content: center; padding: 0.75rem 1.5rem; font-size: 0.98rem; font-weight: 700; background: #e5242c; color: #ffffff; border: none; border-radius: 8px; cursor: pointer;">
+                <i class="fas fa-paper-plane" style="margin-right: 6px;"></i> Submit Quote Request
+              </button>
+              <button type="button" class="btn btn-secondary" onclick="closeQuoteModal()" style="padding: 0.75rem 1.25rem; font-size: 0.92rem; border-radius: 8px; cursor: pointer;">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    const modal = document.getElementById('quoteModal');
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeQuoteModal();
+      });
+    }
+  }
+
+  // Intercept all "Get Quote" triggers
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('a, button');
+    if (!target) return;
+
+    const text = (target.textContent || '').trim().toLowerCase();
+    const href = target.getAttribute('href') || '';
+
+    if (text.includes('get quote') || href.includes('contact.html?product=') || target.classList.contains('btn-quote-trigger')) {
+      e.preventDefault();
+      
+      let productName = '';
+      if (href.includes('product=')) {
+        try {
+          const urlParams = new URLSearchParams(href.split('?')[1]);
+          productName = decodeURIComponent(urlParams.get('product') || '');
+        } catch (err) {}
+      }
+      
+      if (!productName) {
+        const card = target.closest('.product-card, .product-card-slide, .product-card-item');
+        if (card) {
+          const titleEl = card.querySelector('h3, h2, [data-title]');
+          if (titleEl) productName = titleEl.textContent.trim();
+        }
+      }
+
+      openQuoteModal(productName);
+    }
+  });
+}
+
+window.openQuoteModal = function (productName) {
+  let modal = document.getElementById('quoteModal');
+  if (!modal) {
+    initQuoteModal();
+    modal = document.getElementById('quoteModal');
+  }
+
+  const prodInput = document.getElementById('quoteProduct');
+  const titleEl = document.getElementById('quoteModalTitle');
+  const successMsg = document.getElementById('quoteSuccessMsg');
+  const form = document.getElementById('quoteModalForm');
+
+  if (successMsg) successMsg.style.display = 'none';
+  if (form) form.reset();
+
+  if (productName && prodInput) {
+    prodInput.value = productName;
+    if (titleEl) titleEl.textContent = `Get Quote: ${productName}`;
+  } else {
+    if (prodInput) prodInput.value = 'Industrial Level Instruments';
+    if (titleEl) titleEl.textContent = 'Request a Product Quotation';
+  }
+
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+};
+
+window.closeQuoteModal = function () {
+  const modal = document.getElementById('quoteModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+};
+
+window.handleQuoteModalSubmit = function (e) {
+  e.preventDefault();
+  const product = document.getElementById('quoteProduct').value;
+  const name = document.getElementById('quoteName').value;
+  const phone = document.getElementById('quotePhone').value;
+  const email = document.getElementById('quoteEmail').value;
+
+  const btn = document.getElementById('quoteSubmitBtn');
+  const successMsg = document.getElementById('quoteSuccessMsg');
+
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+  }
+
+  setTimeout(() => {
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fas fa-check"></i> Quote Submitted!';
+    }
+    if (successMsg) {
+      successMsg.innerHTML = `<i class="fas fa-check-circle" style="color: #10b981; margin-right: 6px;"></i> Thank you <strong>${name}</strong>! Your quote request for <strong>${product}</strong> has been received. Our sales engineer will contact you shortly at ${phone} / ${email}.`;
+      successMsg.style.display = 'block';
+    }
+
+    setTimeout(() => {
+      closeQuoteModal();
+      if (btn) btn.innerHTML = '<i class="fas fa-paper-plane" style="margin-right: 6px;"></i> Submit Quote Request';
+    }, 3200);
+  }, 700);
+};
 
