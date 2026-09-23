@@ -3021,56 +3021,41 @@ textarea.form-control {
 }
 
 .footer-bottom-bar {
-  background: #040507;
+  background: #030406;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.85rem 0;
-}
-
-.footer-bottom-flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.4rem 1.5rem;
+  padding: 1.1rem 0;
+  text-align: center;
 }
 
 .footer-bottom-bar .copyright-text {
   color: #94a3b8;
-  font-size: 0.85rem;
-  line-height: 1.4;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
 }
 
 .footer-bottom-bar .copyright-text strong {
-  color: #e2e8f0;
-  font-weight: 600;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .footer-bottom-bar .dev-credits {
-  margin: 0;
-  font-size: 0.84rem;
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
   color: #64748b;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .footer-bottom-bar .dev-credits a {
-  color: #cbd5e1;
+  color: #00b4d8;
   font-weight: 600;
   text-decoration: none;
-  transition: color 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .footer-bottom-bar .dev-credits a:hover {
-  color: var(--primary-cyan);
+  color: #38bdf8;
   text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .footer-bottom-flex {
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    gap: 0.3rem;
-  }
 }
 
 /* Floating Action Buttons Stack */
