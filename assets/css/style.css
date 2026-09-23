@@ -2968,35 +2968,29 @@ textarea.form-control {
 
 .footer-contact-item {
   display: flex;
-  flex-direction: column;
-  padding-bottom: 0.85rem;
+  align-items: flex-start;
+  gap: 14px;
+  padding-bottom: 1.05rem;
 }
 
 .footer-contact-item.with-divider {
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  margin-bottom: 0.85rem;
+  margin-bottom: 1.05rem;
 }
 
-.contact-sub-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #94a3b8;
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-bottom: 0.35rem;
-}
-
-.contact-sub-header .contact-icon {
+.footer-contact-item .contact-icon {
   color: var(--primary-cyan);
-  font-size: 0.95rem;
+  font-size: 1.2rem;
+  margin-top: 3px;
+  flex-shrink: 0;
 }
 
 .footer-contact-item .contact-val {
   color: #ffffff;
   font-weight: 600;
   font-size: 1.02rem;
-  line-height: 1.6;
+  line-height: 1.65;
+  flex: 1;
 }
 
 .footer-contact-item .contact-val a {
@@ -3010,10 +3004,10 @@ textarea.form-control {
 }
 
 .footer-contact-item .address-text {
-  font-weight: 500;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #cbd5e1;
+  font-weight: 600;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: #ffffff;
 }
 
 .footer-map-wrapper {
