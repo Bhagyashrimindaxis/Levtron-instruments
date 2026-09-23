@@ -3289,16 +3289,16 @@ textarea.form-control {
   padding: 0.95rem 2.4rem;
   font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: 0.6px;
-  color: #ffffff !important;
+  letter-spacing: 0.5px;
+  color: #0f172a !important;
   text-decoration: none;
-  background: linear-gradient(135deg, #e5242c 0%, #c81e25 60%, #991b1b 100%);
+  background: #ffffff;
   border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid #ffffff;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 0 0 0 rgba(229, 36, 44, 0.6), 0 8px 24px rgba(229, 36, 44, 0.45);
-  animation: heroPulseGlow 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7), 0 8px 25px rgba(0, 0, 0, 0.45), 0 0 20px rgba(255, 255, 255, 0.35);
+  animation: heroWhitePulse 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
   transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   z-index: 1;
 }
@@ -3314,7 +3314,7 @@ textarea.form-control {
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.35) 50%,
+    rgba(229, 36, 44, 0.18) 50%,
     rgba(255, 255, 255, 0) 100%
   );
   transform: translateX(-150%) skewX(-25deg);
@@ -3331,19 +3331,21 @@ textarea.form-control {
 .hero-btn-explore i {
   position: relative;
   z-index: 3;
-  font-size: 0.95rem;
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  color: #e5242c;
+  font-size: 1rem;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.35s ease;
 }
 
 .hero-btn-explore:hover {
-  background: linear-gradient(135deg, #ff3841 0%, #e5242c 60%, #b91c1c 100%);
-  transform: translateY(-3px) scale(1.04);
-  box-shadow: 0 0 25px rgba(229, 36, 44, 0.8), 0 12px 30px rgba(0, 0, 0, 0.5);
-  border-color: rgba(255, 255, 255, 0.6);
+  background: #e5242c;
+  border-color: #e5242c;
   color: #ffffff !important;
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 0 30px rgba(229, 36, 44, 0.8), 0 12px 30px rgba(0, 0, 0, 0.6);
 }
 
 .hero-btn-explore:hover i {
+  color: #ffffff;
   transform: translateX(6px);
 }
 
@@ -3351,16 +3353,16 @@ textarea.form-control {
   transform: translateY(-1px) scale(0.98);
 }
 
-/* Animations */
-@keyframes heroPulseGlow {
+/* Bright White Glowing Pulse Animation */
+@keyframes heroWhitePulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(229, 36, 44, 0.7), 0 8px 24px rgba(229, 36, 44, 0.4);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.8), 0 8px 25px rgba(0, 0, 0, 0.45);
   }
   50% {
-    box-shadow: 0 0 0 12px rgba(229, 36, 44, 0), 0 12px 28px rgba(229, 36, 44, 0.6);
+    box-shadow: 0 0 0 14px rgba(255, 255, 255, 0), 0 12px 32px rgba(255, 255, 255, 0.35);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(229, 36, 44, 0), 0 8px 24px rgba(229, 36, 44, 0.4);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0), 0 8px 25px rgba(0, 0, 0, 0.45);
   }
 }
 
