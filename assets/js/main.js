@@ -855,7 +855,7 @@ if (document.readyState === 'loading') {
 }
 
 // ==========================================================================
-// UNIVERSAL REQUEST A QUOTE MODAL FORM SYSTEM
+// UNIVERSAL COMPACT REQUEST A QUOTE MODAL FORM SYSTEM
 // ==========================================================================
 function initQuoteModal() {
   if (!document.getElementById('quoteModal')) {
@@ -864,55 +864,97 @@ function initQuoteModal() {
         <div class="modal-box quote-modal-box">
           <button class="modal-close" id="quoteModalClose" onclick="closeQuoteModal()" aria-label="Close Modal"><i class="fas fa-times"></i></button>
           
-          <div class="quote-modal-header">
-            <span class="quote-modal-tag"><i class="fas fa-file-invoice" style="color: #e5242c;"></i> Instant Quotation</span>
-            <h3 id="quoteModalTitle" class="quote-modal-heading">Request a Quote</h3>
-            <p class="quote-modal-sub">Fill out your requirements below to receive a formal price quote & technical datasheet from Levtron engineers.</p>
+          <div class="quote-modal-header" style="margin-bottom: 0.85rem; padding-right: 1.5rem;">
+            <span class="quote-modal-tag" style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.75rem; font-weight: 700; color: #e5242c; text-transform: uppercase; margin-bottom: 0.2rem;"><i class="fas fa-file-invoice"></i> Instant Price Quote</span>
+            <h3 id="quoteModalTitle" class="quote-modal-heading" style="font-size: 1.3rem; font-weight: 800; color: #0f172a; margin: 0 0 0.2rem;">Request a Quote</h3>
+            <p class="quote-modal-sub" style="font-size: 0.82rem; color: #64748b; margin: 0;">Select your instrument to receive an official datasheet & quotation from Levtron engineers.</p>
           </div>
 
           <form id="quoteModalForm" onsubmit="handleQuoteModalSubmit(event)">
+            <div class="form-group" style="margin-bottom: 0.75rem;">
+              <label for="quoteProduct" style="display: block; font-size: 0.82rem; font-weight: 700; color: #1e293b; margin-bottom: 0.25rem;">Select Product / Instrument *</label>
+              <select id="quoteProduct" class="form-control" required style="width: 100%; padding: 0.5rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem; font-weight: 600; color: #0f172a; background: #f8fafc; cursor: pointer;">
+                <option value="">-- Choose Product --</option>
+                <optgroup label="Level Switches (Point Level)">
+                  <option value="RFLS-100S Compact RF Admittance Level Switch">RFLS-100S Compact RF Admittance Switch (Solids)</option>
+                  <option value="RFLS-100L Compact RF Admittance Level Switch">RFLS-100L Compact RF Admittance Switch (Liquids)</option>
+                  <option value="VFLS-200S Standard Vibrating Fork Level Switch">VFLS-200S Vibrating Fork Switch (Solids)</option>
+                  <option value="RFLS-300S Standard RF Admittance Level Switch">RFLS-300S Standard RF Admittance (Rod Type)</option>
+                  <option value="RFLS-300L Standard RF Admittance Level Switch">RFLS-300L Standard RF Admittance (Full PTFE)</option>
+                  <option value="RFLS-300SR Rope Type RF Admittance Level Switch">RFLS-300SR Rope Type RF Admittance (Deep Silos)</option>
+                  <option value="RFLS-300SD Disc Probe RF Admittance Level Switch">RFLS-300SD Disc Probe RF Admittance (Chutes)</option>
+                  <option value="RFLS-300HD Heavy Duty RF Admittance Level Switch">RFLS-300HD Heavy Duty RF Admittance (High Impact)</option>
+                  <option value="VFLS-400S Compact Vibrating Fork Level Switch">VFLS-400S Compact Vibrating Fork (Grains/Powders)</option>
+                  <option value="VRLS-500S Standard Vibrating Rod Level Switch">VRLS-500S Vibrating Rod Level Switch</option>
+                  <option value="RPLS-600S Rotating Paddle Level Switch">RPLS-600S Rotating Paddle Level Switch</option>
+                  <option value="VFLS-700L Flameproof Liquid Vibrating Fork Switch">VFLS-700L Flameproof Liquid Vibrating Fork</option>
+                  <option value="MVFLS-800L Miniature Vibrating Fork Level Switch">MVFLS-800L Miniature Vibrating Fork (40mm)</option>
+                  <option value="CPLS-900S Capacitance Level Switch">CPLS-900S Capacitance Level Switch (Solids)</option>
+                  <option value="MCLS-900L Miniature Capacitive Level Switch">MCLS-900L Miniature Capacitive Switch (Liquids)</option>
+                  <option value="IPLS-1000L Infrared Optical Point Level Switch">IPLS-1000L Infrared Optical Level Switch</option>
+                  <option value="MFLS-1300L Top Mounted Magnetic Float Level Switch">MFLS-1300L Top Mounted Float Level Switch</option>
+                  <option value="RDLS-1400S Rubber Diaphragm Level Switch">RDLS-1400S Rubber Diaphragm Level Switch</option>
+                  <option value="SDLS-1500S Stainless Steel Diaphragm Level Switch">SDLS-1500S Stainless Steel Diaphragm Switch</option>
+                  <option value="HFLS-1600L Horizontal Magnetic Float Level Switch">HFLS-1600L Horizontal Float Switch (Side Mount)</option>
+                  <option value="CTLS-1700L Multi-Channel Conductivity Level Controller">CTLS-1700L Conductivity Level Controller</option>
+                </optgroup>
+                <optgroup label="Level Transmitters (Continuous Level)">
+                  <option value="FMLT-1800LS 80GHz Radar Level Transmitter">FMLT-1800LS 80GHz Radar Level Transmitter</option>
+                  <option value="CPLT-1200L Capacitance Level Transmitter">CPLT-1200L Capacitance Level Transmitter</option>
+                  <option value="CPLT-1200F Fuel Level Transmitter">CPLT-1200F Fuel Level Transmitter</option>
+                  <option value="HSLT-2000L Submersible Level Transmitter">HSLT-2000L Submersible Level Transmitter</option>
+                  <option value="LULT-2300L Ultrasonic Level Transmitter">LULT-2300L Ultrasonic Level Transmitter</option>
+                  <option value="MFLT-1100L Magnetic Float Level Transmitter">MFLT-1100L Magnetic Float Level Transmitter</option>
+                </optgroup>
+                <optgroup label="Level Indicators & Gauges">
+                  <option value="LMLT-2100LT Magnetic Level Gauge & Indicator">LMLT-2100LT Magnetic Level Gauge & Indicator</option>
+                  <option value="LTLI-2200L Tubular Level Indicator">LTLI-2200L Tubular Level Indicator</option>
+                  <option value="FBLI-2400L Float and Board Level Indicator">FBLI-2400L Float & Board Level Indicator</option>
+                </optgroup>
+                <optgroup label="Pressure & Other Instruments">
+                  <option value="QYB100 Piezoresistive Pressure Transmitter">QYB100 Piezoresistive Pressure Transmitter</option>
+                  <option value="Custom Engineered Level Solution">Other / Custom Engineered Solution</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;" class="quote-form-grid">
+              <div class="form-group">
+                <label for="quoteName" style="display: block; font-size: 0.82rem; font-weight: 700; color: #1e293b; margin-bottom: 0.25rem;">Full Name *</label>
+                <input type="text" id="quoteName" class="form-control" placeholder="e.g. Rajesh Sharma" required style="width: 100%; padding: 0.5rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem;">
+              </div>
+              <div class="form-group">
+                <label for="quotePhone" style="display: block; font-size: 0.82rem; font-weight: 700; color: #1e293b; margin-bottom: 0.25rem;">Mobile / WhatsApp *</label>
+                <input type="tel" id="quotePhone" class="form-control" placeholder="+91 9876543210" required style="width: 100%; padding: 0.5rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem;">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;" class="quote-form-grid">
+              <div class="form-group">
+                <label for="quoteEmail" style="display: block; font-size: 0.82rem; font-weight: 700; color: #1e293b; margin-bottom: 0.25rem;">Email Address *</label>
+                <input type="email" id="quoteEmail" class="form-control" placeholder="name@company.com" required style="width: 100%; padding: 0.5rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem;">
+              </div>
+              <div class="form-group">
+                <label for="quoteCompany" style="display: block; font-size: 0.82rem; font-weight: 700; color: #1e293b; margin-bottom: 0.25rem;">Company Name</label>
+                <input type="text" id="quoteCompany" class="form-control" placeholder="e.g. Apex Industries" style="width: 100%; padding: 0.5rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem;">
+              </div>
+            </div>
+
             <div class="form-group" style="margin-bottom: 0.95rem;">
-              <label for="quoteProduct" style="display: block; font-size: 0.85rem; font-weight: 700; color: #1e293b; margin-bottom: 0.35rem;">Instrument / Product Name *</label>
-              <input type="text" id="quoteProduct" class="form-control" placeholder="e.g. RF Admittance Level Switch" required style="width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.92rem; font-weight: 600; color: #0f172a; background: #f8fafc;">
+              <label for="quoteMessage" style="display: block; font-size: 0.82rem; font-weight: 700; color: #1e293b; margin-bottom: 0.25rem;">Quantity / Requirements</label>
+              <textarea id="quoteMessage" class="form-control" rows="2" placeholder="Quantity, tank height, medium, operating temp/pressure..." style="width: 100%; padding: 0.45rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.86rem; resize: vertical; min-height: 48px;"></textarea>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.95rem; margin-bottom: 0.95rem;" class="quote-form-grid">
-              <div class="form-group">
-                <label for="quoteName" style="display: block; font-size: 0.85rem; font-weight: 700; color: #1e293b; margin-bottom: 0.35rem;">Full Name *</label>
-                <input type="text" id="quoteName" class="form-control" placeholder="e.g. Rajesh Sharma" required style="width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.92rem;">
-              </div>
-              <div class="form-group">
-                <label for="quotePhone" style="display: block; font-size: 0.85rem; font-weight: 700; color: #1e293b; margin-bottom: 0.35rem;">Mobile / WhatsApp *</label>
-                <input type="tel" id="quotePhone" class="form-control" placeholder="+91 9876543210" required style="width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.92rem;">
-              </div>
+            <div id="quoteSuccessMsg" style="display: none; padding: 0.65rem 0.85rem; background: #ecfdf5; border: 1px solid #10b981; border-radius: 8px; color: #065f46; font-size: 0.86rem; font-weight: 600; margin-bottom: 0.75rem; text-align: center;">
+              <i class="fas fa-check-circle" style="color: #10b981; margin-right: 5px;"></i>
+              Quotation request submitted! Our sales team will contact you shortly.
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.95rem; margin-bottom: 0.95rem;" class="quote-form-grid">
-              <div class="form-group">
-                <label for="quoteEmail" style="display: block; font-size: 0.85rem; font-weight: 700; color: #1e293b; margin-bottom: 0.35rem;">Email Address *</label>
-                <input type="email" id="quoteEmail" class="form-control" placeholder="name@company.com" required style="width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.92rem;">
-              </div>
-              <div class="form-group">
-                <label for="quoteCompany" style="display: block; font-size: 0.85rem; font-weight: 700; color: #1e293b; margin-bottom: 0.35rem;">Company Name</label>
-                <input type="text" id="quoteCompany" class="form-control" placeholder="e.g. Apex Process Industries" style="width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.92rem;">
-              </div>
-            </div>
-
-            <div class="form-group" style="margin-bottom: 1.15rem;">
-              <label for="quoteMessage" style="display: block; font-size: 0.85rem; font-weight: 700; color: #1e293b; margin-bottom: 0.35rem;">Quantity / Technical Details</label>
-              <textarea id="quoteMessage" class="form-control" rows="2" placeholder="Quantity, process fluid/solid, tank height, operating temp/pressure..." style="width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.92rem; resize: vertical;"></textarea>
-            </div>
-
-            <div id="quoteSuccessMsg" style="display: none; padding: 0.85rem; background: #ecfdf5; border: 1px solid #10b981; border-radius: 8px; color: #065f46; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem; text-align: center;">
-              <i class="fas fa-check-circle" style="color: #10b981; margin-right: 6px;"></i>
-              Quotation request submitted! Our engineering team will contact you shortly.
-            </div>
-
-            <div style="display: flex; gap: 0.75rem;">
-              <button type="submit" class="btn btn-primary" id="quoteSubmitBtn" style="flex: 1; justify-content: center; padding: 0.75rem 1.5rem; font-size: 0.98rem; font-weight: 700; background: #e5242c; color: #ffffff; border: none; border-radius: 8px; cursor: pointer;">
+            <div style="display: flex; gap: 0.65rem;">
+              <button type="submit" class="btn btn-primary" id="quoteSubmitBtn" style="flex: 1; justify-content: center; padding: 0.65rem 1.25rem; font-size: 0.92rem; font-weight: 700; background: #e5242c; color: #ffffff; border: none; border-radius: 8px; cursor: pointer;">
                 <i class="fas fa-paper-plane" style="margin-right: 6px;"></i> Submit Quote Request
               </button>
-              <button type="button" class="btn btn-secondary" onclick="closeQuoteModal()" style="padding: 0.75rem 1.25rem; font-size: 0.92rem; border-radius: 8px; cursor: pointer;">Cancel</button>
+              <button type="button" class="btn btn-secondary" onclick="closeQuoteModal()" style="padding: 0.65rem 1rem; font-size: 0.88rem; border-radius: 8px; cursor: pointer;">Cancel</button>
             </div>
           </form>
         </div>
@@ -967,7 +1009,7 @@ window.openQuoteModal = function (productName) {
     modal = document.getElementById('quoteModal');
   }
 
-  const prodInput = document.getElementById('quoteProduct');
+  const prodSelect = document.getElementById('quoteProduct');
   const titleEl = document.getElementById('quoteModalTitle');
   const successMsg = document.getElementById('quoteSuccessMsg');
   const form = document.getElementById('quoteModalForm');
@@ -975,11 +1017,35 @@ window.openQuoteModal = function (productName) {
   if (successMsg) successMsg.style.display = 'none';
   if (form) form.reset();
 
-  if (productName && prodInput) {
-    prodInput.value = productName;
+  if (productName && prodSelect) {
+    let matched = false;
+    const cleanSearch = productName.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+    for (let i = 0; i < prodSelect.options.length; i++) {
+      const opt = prodSelect.options[i];
+      const optClean = (opt.value + ' ' + opt.text).toLowerCase().replace(/[^a-z0-9]/g, '');
+      if (optClean.includes(cleanSearch) || cleanSearch.includes(optClean.slice(0, 10))) {
+        prodSelect.selectedIndex = i;
+        matched = true;
+        break;
+      }
+    }
+
+    if (!matched) {
+      // Create or select first matching option
+      for (let i = 0; i < prodSelect.options.length; i++) {
+        const opt = prodSelect.options[i];
+        if (opt.value && (productName.includes(opt.value.split(' ')[0]) || opt.value.includes(productName.split(' ')[0]))) {
+          prodSelect.selectedIndex = i;
+          matched = true;
+          break;
+        }
+      }
+    }
+
     if (titleEl) titleEl.textContent = `Get Quote: ${productName}`;
   } else {
-    if (prodInput) prodInput.value = 'Industrial Level Instruments';
+    if (prodSelect) prodSelect.selectedIndex = 0;
     if (titleEl) titleEl.textContent = 'Request a Product Quotation';
   }
 
@@ -1018,7 +1084,7 @@ window.handleQuoteModalSubmit = function (e) {
       btn.innerHTML = '<i class="fas fa-check"></i> Quote Submitted!';
     }
     if (successMsg) {
-      successMsg.innerHTML = `<i class="fas fa-check-circle" style="color: #10b981; margin-right: 6px;"></i> Thank you <strong>${name}</strong>! Your quote request for <strong>${product}</strong> has been received. Our sales engineer will contact you shortly at ${phone} / ${email}.`;
+      successMsg.innerHTML = `<i class="fas fa-check-circle" style="color: #10b981; margin-right: 5px;"></i> Thank you <strong>${name}</strong>! Your quote request for <strong>${product}</strong> has been received. Our sales team will contact you shortly at ${phone} / ${email}.`;
       successMsg.style.display = 'block';
     }
 
