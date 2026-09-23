@@ -3021,38 +3021,56 @@ textarea.form-control {
 }
 
 .footer-bottom-bar {
-  background: #020304;
+  background: #040507;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1.6rem 0;
-  text-align: center;
+  padding: 0.85rem 0;
+}
+
+.footer-bottom-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
 }
 
 .footer-bottom-bar .copyright-text {
   color: #94a3b8;
-  font-size: 0.98rem;
-  line-height: 1.65;
+  font-size: 0.85rem;
+  line-height: 1.4;
 }
 
 .footer-bottom-bar .copyright-text strong {
-  color: #ffffff;
+  color: #e2e8f0;
+  font-weight: 600;
 }
 
 .footer-bottom-bar .dev-credits {
-  margin-top: 0.45rem;
-  font-size: 0.92rem;
+  margin: 0;
+  font-size: 0.84rem;
   color: #64748b;
+  line-height: 1.4;
 }
 
 .footer-bottom-bar .dev-credits a {
-  color: #ffffff;
+  color: #cbd5e1;
   font-weight: 600;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.25s ease;
 }
 
 .footer-bottom-bar .dev-credits a:hover {
   color: var(--primary-cyan);
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer-bottom-flex {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 0.3rem;
+  }
 }
 
 /* Floating Action Buttons Stack */
