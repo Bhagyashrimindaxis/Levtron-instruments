@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css?v=1.3">
+  <link rel="stylesheet" href="assets/css/style.css?v=2.4">
 </head>
 
 <body>
@@ -23,32 +23,109 @@
   <div id="header-placeholder"></div>
 
   <!-- Executive Hero Section (Reference Design: Split Visual, Clean Typography, Dual Waves & Floating 3D Catalog) -->
-  <section class="executive-hero-section">
-    <div class="executive-hero-bg"></div>
-    <div class="executive-hero-overlay"></div>
+  <section class="executive-hero-section hero-slider-section">
+    <!-- Hero Back-to-Back Slides Wrapper -->
+    <div class="hero-slides-wrapper">
 
-    <div class="container executive-hero-container">
-      <div class="executive-hero-grid">
-        <!-- Left spacer for engineer backdrop visual -->
-        <div class="executive-hero-visual"></div>
-
-        <!-- Right content column -->
-        <div class="executive-hero-content">
-          <div class="hero-eyebrow-tag">
-            <span class="eyebrow-dash"></span>
-            <span>PRECISION PROCESS INSTRUMENTATION</span>
+      <!-- Slide 1: Magnetic Level Gauge & Indicator -->
+      <div class="hero-slide active">
+        <div class="hero-slide-bg" style="background-image: url('assets/img/LMLT-2100LT Magnetic Level Gauge & Indicator.png');"></div>
+        <div class="executive-hero-overlay"></div>
+        <div class="container executive-hero-container">
+          <div class="executive-hero-content-center">
+            <div class="hero-eyebrow-tag">
+              <span class="eyebrow-dash"></span>
+              <span>PRECISION PROCESS INSTRUMENTATION</span>
+              <span class="eyebrow-dash"></span>
+            </div>
+            <h1 class="hero-main-title">
+              Magnetic Level Gauge & <span class="title-highlight">Visual Level Indicators</span>
+            </h1>
+            <p class="hero-main-desc">
+              Engineered with high-visibility bicolor magnetic flappers and continuous coupling for rugged, leak-proof visual level indication across aggressive liquids and high-pressure tanks.
+            </p>
           </div>
-          <h1 class="hero-main-title">
-            Discover The Secret Of <span class="title-highlight">Precision Level Measurement</span>
-          </h1>
-          <p class="hero-main-desc">
-            Levtron Instruments manufactures world-class RF Admittance, Vibrating Fork, Radar, and Ultrasonic sensing
-            systems engineered for zero-maintenance reliability across liquids, powders, and heavy industrial solids.
-          </p>
-
-
         </div>
       </div>
+
+      <!-- Slide 2: Piezoresistive Pressure Transmitter -->
+      <div class="hero-slide">
+        <div class="hero-slide-bg" style="background-image: url('assets/img/QYB100-Piezoresistive-Pressure-Transmitter.png');"></div>
+        <div class="executive-hero-overlay"></div>
+        <div class="container executive-hero-container">
+          <div class="executive-hero-content-center">
+            <div class="hero-eyebrow-tag">
+              <span class="eyebrow-dash"></span>
+              <span>HIGH-PRECISION PRESSURE SENSING</span>
+              <span class="eyebrow-dash"></span>
+            </div>
+            <h1 class="hero-main-title">
+              Piezoresistive Pressure <span class="title-highlight">& Hydrostatic Sensing</span>
+            </h1>
+            <p class="hero-main-desc">
+              High-precision stainless steel piezoresistive pressure transmitter designed for hydraulic systems, industrial pipelines, and continuous hydrostatic fluid level measurement.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: About / Process Instrumentation Suite -->
+      <div class="hero-slide">
+        <div class="hero-slide-bg" style="background-image: url('assets/img/about page.png');"></div>
+        <div class="executive-hero-overlay"></div>
+        <div class="container executive-hero-container">
+          <div class="executive-hero-content-center">
+            <div class="hero-eyebrow-tag">
+              <span class="eyebrow-dash"></span>
+              <span>LEVTRON PROCESS INSTRUMENTATION</span>
+              <span class="eyebrow-dash"></span>
+            </div>
+            <h1 class="hero-main-title">
+              Discover The Secret Of <span class="title-highlight">Precision Level Measurement</span>
+            </h1>
+            <p class="hero-main-desc">
+              Levtron Instruments manufactures world-class RF Admittance, Vibrating Fork, Radar, and Ultrasonic sensing systems engineered for zero-maintenance reliability across liquids, powders, and heavy industrial solids.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Float & Board Level Indicator -->
+      <div class="hero-slide">
+        <div class="hero-slide-bg" style="background-image: url('assets/img/FBLI-2400L Float and Board Level Indicator.png');"></div>
+        <div class="executive-hero-overlay"></div>
+        <div class="container executive-hero-container">
+          <div class="executive-hero-content-center">
+            <div class="hero-eyebrow-tag">
+              <span class="eyebrow-dash"></span>
+              <span>BULK STORAGE TANK MONITORING</span>
+              <span class="eyebrow-dash"></span>
+            </div>
+            <h1 class="hero-main-title">
+              Float & Board <span class="title-highlight">Level Indicators</span>
+            </h1>
+            <p class="hero-main-desc">
+              Engineered for large atmospheric bulk storage tanks, offering direct clear scale board readout with heavy-duty float and frictionless guide wire assembly for liquid storage monitoring.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Navigation Controls & Dots -->
+    <button class="hero-slider-nav hero-slider-prev" id="sliderPrev" aria-label="Previous Slide">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="hero-slider-nav hero-slider-next" id="sliderNext" aria-label="Next Slide">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <div class="slider-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
     </div>
 
 
@@ -92,18 +169,16 @@
         <div>
           <div class="section-title" style="text-align: left; margin-bottom: 1.25rem;">
             <span class="subtitle">About Levtron Instruments</span>
-            <h2>Leading the Industry in Precision Level Measurement</h2>
+            <h2>Leading the Way in Level Measurement Solutions</h2>
           </div>
-          <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 1rem; line-height: 1.65;">
-            Levtron Instruments Pvt Ltd is committed to designing and manufacturing high-precision level detection
-            systems. Our product suite includes Compact Vibrating Fork Switches, RF Admittance Switches, Rotating
-            Paddles, Optical Sensors, and Digital Level Transmitters.
+          <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 1rem; line-height: 1.75; font-style: normal; font-weight: 400;">
+            Levtron is committed to providing high-quality level measurement solutions, delivering precision and reliability through our advanced product offerings.
           </p>
-          <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.65;">
-            Whether monitoring corrosive liquids, fine powders, or heavy mining granules, Levtron instruments ensure
-            zero-maintenance reliability and continuous process uptime.
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.75; font-style: normal; font-weight: 400;">
+            At Levtron, we specialize in state-of-the-art level measurement technology. Our extensive product range includes compact vibrating fork level switches, RF admittance level switches (rod and disc types), compact vibrating rod level switches, conductivity level switches, and miniature vibrating fork level switches. Each product is designed to meet the highest standards of accuracy and durability, ensuring optimal performance in various industrial applications. Our dedication to innovation and customer satisfaction positions us as a trusted partner in level measurement solutions.
           </p>
-          <a href="about.html" class="btn btn-secondary btn-sm">Learn More About Us <i class="fas fa-arrow-right"></i></a>
+          <a href="about.html" class="btn btn-secondary btn-sm">Learn More About Us <i
+              class="fas fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -526,8 +601,17 @@
     }
 
     @keyframes pulseGlow {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.4); opacity: 0.6; }
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.4);
+        opacity: 0.6;
+      }
     }
 
     .stat-content {
@@ -949,7 +1033,8 @@
                 </div>
               </div>
               <p class="review-quote">
-                “We replaced our imported level switches with Levtron’s RF Admittance switches across thermal power units.
+                “We replaced our imported level switches with Levtron’s RF Admittance switches across thermal power
+                units.
                 Zero false alarms despite severe fly-ash build-up. Outstanding Indian engineering!”
               </p>
               <div class="review-user-info">
@@ -1006,7 +1091,7 @@
   <div id="footer-placeholder"></div>
 
   <!-- Script File -->
-  <script src="assets/js/main.js?v=1.6"></script>
+  <script src="assets/js/main.js?v=1.7"></script>
 </body>
 
 </html>

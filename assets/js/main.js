@@ -40,7 +40,6 @@ function initNavEvents() {
   const navLinks = document.getElementById('navLinks');
   const productsDropdown = document.getElementById('productsDropdown');
   const productsDropdownToggle = document.getElementById('productsDropdownToggle');
-  const levelSwitchItem = document.getElementById('levelSwitchItem');
 
   // Mobile Menu Toggle
   if (mobileToggle && navLinks) {
@@ -52,6 +51,15 @@ function initNavEvents() {
         icon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
       }
     };
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function (e) {
+      if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+        navLinks.classList.remove('active');
+        const icon = mobileToggle.querySelector('i');
+        if (icon) icon.className = 'fas fa-bars';
+      }
+    });
   }
 
   // Dropdown Toggle (for mobile / touch)
@@ -73,11 +81,13 @@ function initNavEvents() {
       link.addEventListener('click', function (e) {
         if (window.innerWidth <= 992) {
           e.preventDefault();
+          const isOpen = item.classList.contains('open');
           hasSubItems.forEach(other => {
-            if (other !== item) other.classList.remove('open', 'active');
+            other.classList.remove('open', 'active');
           });
-          item.classList.toggle('open');
-          item.classList.toggle('active');
+          if (!isOpen) {
+            item.classList.add('open', 'active');
+          }
         }
       });
     }
@@ -277,7 +287,7 @@ function initPageScripts() {
     }
 
     function startAutoSlide() {
-      if (!slideTimer) slideTimer = setInterval(autoNextSlide, 5000);
+      if (!slideTimer) slideTimer = setInterval(autoNextSlide, 1230);
     }
 
     function stopAutoSlide() {
@@ -804,3 +814,39 @@ window.closeModal = function () {
   const modalBackdrop = document.getElementById('productModal');
   if (modalBackdrop) modalBackdrop.classList.remove('active');
 };
+
+// Mission & Vision Card Scroll Animation (Left-to-Right & Right-to-Left)
+function initMissionVisionAnimation() {
+  const missionCard = document.querySelector('.mission-poly-card');
+  const visionCard = document.querySelector('.vision-poly-card');
+  const container = document.querySelector('.mv-polygon-cards-grid');
+
+  if (!container || !missionCard || !visionCard) return;
+
+  if ('IntersectionObserver' in window) {
+    // Reset and trigger when scrolled into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          missionCard.style.animation = 'none';
+          visionCard.style.animation = 'none';
+          // Trigger reflow
+          void missionCard.offsetWidth;
+          void visionCard.offsetWidth;
+          missionCard.style.animation = 'slideInFromLeft 1s cubic-bezier(0.16, 1, 0.3, 1) both';
+          visionCard.style.animation = 'slideInFromRight 1s cubic-bezier(0.16, 1, 0.3, 1) both';
+        }
+      });
+    }, { threshold: 0.15 });
+
+    observer.observe(container);
+  }
+}
+
+// Call on startup
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initMissionVisionAnimation);
+} else {
+  initMissionVisionAnimation();
+}
+
