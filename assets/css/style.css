@@ -3060,14 +3060,14 @@ textarea.form-control {
 }
 
 .footer-bottom-card .dev-credits a {
-  color: #00d2ff;
+  color: #ffffff;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-bottom-card .dev-credits a:hover {
-  color: #ffffff;
+  color: var(--primary-cyan);
   text-decoration: underline;
 }
 
