@@ -862,101 +862,105 @@ function initQuoteModal() {
     const modalHTML = `
       <div class="modal-backdrop" id="quoteModal">
         <div class="modal-box quote-modal-box">
-          <button class="modal-close" id="quoteModalClose" onclick="closeQuoteModal()" aria-label="Close Modal"><i class="fas fa-times"></i></button>
-          
-          <div class="quote-modal-header" style="margin-bottom: 0.85rem; padding-right: 1.5rem;">
-            <span class="quote-modal-tag" style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.75rem; font-weight: 700; color: #e5242c; text-transform: uppercase; margin-bottom: 0.2rem;"><i class="fas fa-file-invoice"></i> Instant Price Quote</span>
-            <h3 id="quoteModalTitle" class="quote-modal-heading" style="font-size: 1.3rem; font-weight: 800; color: #0f172a; margin: 0 0 0.2rem;">Request a Quote</h3>
-            <p class="quote-modal-sub" style="font-size: 0.82rem; color: #64748b; margin: 0;">Select your instrument to receive an official datasheet & quotation from Levtron engineers.</p>
+          <div class="quote-modal-header-bar">
+            <h3><span class="header-calc-icon">🧮</span> Request Industrial Quote</h3>
+            <button class="quote-modal-close-btn" id="quoteModalClose" onclick="closeQuoteModal()" aria-label="Close Modal"><i class="fas fa-times"></i></button>
           </div>
-
-          <form id="quoteModalForm" onsubmit="handleQuoteModalSubmit(event)">
-            <div class="form-group" style="margin-bottom: 0.75rem;">
-              <label for="quoteProduct" style="display: block; font-size: 0.82rem; font-weight: 700; color: #1e293b; margin-bottom: 0.25rem;">Select Product / Instrument *</label>
-              <select id="quoteProduct" class="form-control" required style="width: 100%; padding: 0.5rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem; font-weight: 600; color: #0f172a; background: #f8fafc; cursor: pointer;">
-                <option value="">-- Choose Product --</option>
-                <optgroup label="Level Switches (Point Level)">
-                  <option value="RFLS-100S Compact RF Admittance Level Switch">RFLS-100S Compact RF Admittance Switch (Solids)</option>
-                  <option value="RFLS-100L Compact RF Admittance Level Switch">RFLS-100L Compact RF Admittance Switch (Liquids)</option>
-                  <option value="VFLS-200S Standard Vibrating Fork Level Switch">VFLS-200S Vibrating Fork Switch (Solids)</option>
-                  <option value="RFLS-300S Standard RF Admittance Level Switch">RFLS-300S Standard RF Admittance (Rod Type)</option>
-                  <option value="RFLS-300L Standard RF Admittance Level Switch">RFLS-300L Standard RF Admittance (Full PTFE)</option>
-                  <option value="RFLS-300SR Rope Type RF Admittance Level Switch">RFLS-300SR Rope Type RF Admittance (Deep Silos)</option>
-                  <option value="RFLS-300SD Disc Probe RF Admittance Level Switch">RFLS-300SD Disc Probe RF Admittance (Chutes)</option>
-                  <option value="RFLS-300HD Heavy Duty RF Admittance Level Switch">RFLS-300HD Heavy Duty RF Admittance (High Impact)</option>
-                  <option value="VFLS-400S Compact Vibrating Fork Level Switch">VFLS-400S Compact Vibrating Fork (Grains/Powders)</option>
-                  <option value="VRLS-500S Standard Vibrating Rod Level Switch">VRLS-500S Vibrating Rod Level Switch</option>
-                  <option value="RPLS-600S Rotating Paddle Level Switch">RPLS-600S Rotating Paddle Level Switch</option>
-                  <option value="VFLS-700L Flameproof Liquid Vibrating Fork Switch">VFLS-700L Flameproof Liquid Vibrating Fork</option>
-                  <option value="MVFLS-800L Miniature Vibrating Fork Level Switch">MVFLS-800L Miniature Vibrating Fork (40mm)</option>
-                  <option value="CPLS-900S Capacitance Level Switch">CPLS-900S Capacitance Level Switch (Solids)</option>
-                  <option value="MCLS-900L Miniature Capacitive Level Switch">MCLS-900L Miniature Capacitive Switch (Liquids)</option>
-                  <option value="IPLS-1000L Infrared Optical Point Level Switch">IPLS-1000L Infrared Optical Level Switch</option>
-                  <option value="MFLS-1300L Top Mounted Magnetic Float Level Switch">MFLS-1300L Top Mounted Float Level Switch</option>
-                  <option value="RDLS-1400S Rubber Diaphragm Level Switch">RDLS-1400S Rubber Diaphragm Level Switch</option>
-                  <option value="SDLS-1500S Stainless Steel Diaphragm Level Switch">SDLS-1500S Stainless Steel Diaphragm Switch</option>
-                  <option value="HFLS-1600L Horizontal Magnetic Float Level Switch">HFLS-1600L Horizontal Float Switch (Side Mount)</option>
-                  <option value="CTLS-1700L Multi-Channel Conductivity Level Controller">CTLS-1700L Conductivity Level Controller</option>
-                </optgroup>
-                <optgroup label="Level Transmitters (Continuous Level)">
-                  <option value="FMLT-1800LS 80GHz Radar Level Transmitter">FMLT-1800LS 80GHz Radar Level Transmitter</option>
-                  <option value="CPLT-1200L Capacitance Level Transmitter">CPLT-1200L Capacitance Level Transmitter</option>
-                  <option value="CPLT-1200F Fuel Level Transmitter">CPLT-1200F Fuel Level Transmitter</option>
-                  <option value="HSLT-2000L Submersible Level Transmitter">HSLT-2000L Submersible Level Transmitter</option>
-                  <option value="LULT-2300L Ultrasonic Level Transmitter">LULT-2300L Ultrasonic Level Transmitter</option>
-                  <option value="MFLT-1100L Magnetic Float Level Transmitter">MFLT-1100L Magnetic Float Level Transmitter</option>
-                </optgroup>
-                <optgroup label="Level Indicators & Gauges">
-                  <option value="LMLT-2100LT Magnetic Level Gauge & Indicator">LMLT-2100LT Magnetic Level Gauge & Indicator</option>
-                  <option value="LTLI-2200L Tubular Level Indicator">LTLI-2200L Tubular Level Indicator</option>
-                  <option value="FBLI-2400L Float and Board Level Indicator">FBLI-2400L Float & Board Level Indicator</option>
-                </optgroup>
-                <optgroup label="Pressure & Other Instruments">
-                  <option value="QYB100 Piezoresistive Pressure Transmitter">QYB100 Piezoresistive Pressure Transmitter</option>
-                  <option value="Custom Engineered Level Solution">Other / Custom Engineered Solution</option>
-                </optgroup>
-              </select>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;" class="quote-form-grid">
-              <div class="form-group">
-                <label for="quoteName" style="display: block; font-size: 0.82rem; font-weight: 700; color: #1e293b; margin-bottom: 0.25rem;">Full Name *</label>
-                <input type="text" id="quoteName" class="form-control" placeholder="e.g. Rajesh Sharma" required style="width: 100%; padding: 0.5rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem;">
+          
+          <div class="quote-modal-body">
+            <form id="quoteModalForm" onsubmit="handleQuoteModalSubmit(event)">
+              
+              <!-- Field 1: Product / Service Required (At Top for downward dropdown expansion) -->
+              <div class="quote-field-group">
+                <label for="quoteProduct">Product / Service Required <span class="req-star">*</span></label>
+                <select id="quoteProduct" required>
+                  <option value="">Select Required Service</option>
+                  <optgroup label="Level Switches (Point Level)">
+                    <option value="RFLS-100S Compact RF Admittance Switch">RFLS-100S Compact RF Admittance Switch (Solids)</option>
+                    <option value="RFLS-100L Compact RF Admittance Switch">RFLS-100L Compact RF Admittance Switch (Liquids)</option>
+                    <option value="VFLS-200S Standard Vibrating Fork Switch">VFLS-200S Vibrating Fork Switch (Solids)</option>
+                    <option value="RFLS-300S Standard RF Admittance Switch">RFLS-300S Standard RF Admittance (Rod Type)</option>
+                    <option value="RFLS-300L Standard RF Admittance Switch">RFLS-300L Standard RF Admittance (Full PTFE)</option>
+                    <option value="RFLS-300SR Rope Type RF Admittance Switch">RFLS-300SR Rope Type RF Admittance (Deep Silos)</option>
+                    <option value="RFLS-300SD Disc Probe RF Admittance Switch">RFLS-300SD Disc Probe RF Admittance (Chutes)</option>
+                    <option value="RFLS-300HD Heavy Duty RF Admittance Switch">RFLS-300HD Heavy Duty RF Admittance (High Impact)</option>
+                    <option value="VFLS-400S Compact Vibrating Fork Switch">VFLS-400S Compact Vibrating Fork (Grains/Powders)</option>
+                    <option value="VRLS-500S Standard Vibrating Rod Switch">VRLS-500S Vibrating Rod Level Switch</option>
+                    <option value="RPLS-600S Rotating Paddle Level Switch">RPLS-600S Rotating Paddle Level Switch</option>
+                    <option value="VFLS-700L Flameproof Liquid Vibrating Fork">VFLS-700L Flameproof Liquid Vibrating Fork</option>
+                    <option value="MVFLS-800L Miniature Vibrating Fork Switch">MVFLS-800L Miniature Vibrating Fork (40mm)</option>
+                    <option value="CPLS-900S Capacitance Level Switch">CPLS-900S Capacitance Level Switch (Solids)</option>
+                    <option value="MCLS-900L Miniature Capacitive Switch">MCLS-900L Miniature Capacitive Switch (Liquids)</option>
+                    <option value="IPLS-1000L Infrared Optical Point Switch">IPLS-1000L Infrared Optical Level Switch</option>
+                    <option value="MFLS-1300L Top Mounted Float Level Switch">MFLS-1300L Top Mounted Float Level Switch</option>
+                    <option value="RDLS-1400S Rubber Diaphragm Level Switch">RDLS-1400S Rubber Diaphragm Level Switch</option>
+                    <option value="SDLS-1500S Stainless Steel Diaphragm Switch">SDLS-1500S Stainless Steel Diaphragm Switch</option>
+                    <option value="HFLS-1600L Horizontal Float Level Switch">HFLS-1600L Horizontal Float Switch (Side Mount)</option>
+                    <option value="CTLS-1700L Conductivity Level Controller">CTLS-1700L Conductivity Level Controller</option>
+                  </optgroup>
+                  <optgroup label="Level Transmitters (Continuous Level)">
+                    <option value="FMLT-1800LS 80GHz Radar Level Transmitter">FMLT-1800LS 80GHz Radar Level Transmitter</option>
+                    <option value="CPLT-1200L Capacitance Level Transmitter">CPLT-1200L Capacitance Level Transmitter</option>
+                    <option value="CPLT-1200F Fuel Level Transmitter">CPLT-1200F Fuel Level Transmitter</option>
+                    <option value="HSLT-2000L Submersible Level Transmitter">HSLT-2000L Submersible Level Transmitter</option>
+                    <option value="LULT-2300L Ultrasonic Level Transmitter">LULT-2300L Ultrasonic Level Transmitter</option>
+                    <option value="MFLT-1100L Magnetic Float Level Transmitter">MFLT-1100L Magnetic Float Level Transmitter</option>
+                  </optgroup>
+                  <optgroup label="Level Indicators & Gauges">
+                    <option value="LMLT-2100LT Magnetic Level Gauge & Indicator">LMLT-2100LT Magnetic Level Gauge & Indicator</option>
+                    <option value="LTLI-2200L Tubular Level Indicator">LTLI-2200L Tubular Level Indicator</option>
+                    <option value="FBLI-2400L Float and Board Level Indicator">FBLI-2400L Float & Board Level Indicator</option>
+                  </optgroup>
+                  <optgroup label="Pressure & Other Instruments">
+                    <option value="QYB100 Piezoresistive Pressure Transmitter">QYB100 Piezoresistive Pressure Transmitter</option>
+                    <option value="Custom Engineered Level Solution">Other / Custom Engineered Solution</option>
+                  </optgroup>
+                </select>
               </div>
-              <div class="form-group">
-                <label for="quotePhone" style="display: block; font-size: 0.82rem; font-weight: 700; color: #1e293b; margin-bottom: 0.25rem;">Mobile / WhatsApp *</label>
-                <input type="tel" id="quotePhone" class="form-control" placeholder="+91 9876543210" required style="width: 100%; padding: 0.5rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem;">
+
+              <!-- Row 2: Full Name & Company Name -->
+              <div class="quote-form-row-2">
+                <div class="quote-field-group">
+                  <label for="quoteName">Full Name <span class="req-star">*</span></label>
+                  <input type="text" id="quoteName" placeholder="John Doe" required>
+                </div>
+                <div class="quote-field-group">
+                  <label for="quoteCompany">Company Name</label>
+                  <input type="text" id="quoteCompany" placeholder="Your Industrial Firm">
+                </div>
               </div>
-            </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;" class="quote-form-grid">
-              <div class="form-group">
-                <label for="quoteEmail" style="display: block; font-size: 0.82rem; font-weight: 700; color: #1e293b; margin-bottom: 0.25rem;">Email Address *</label>
-                <input type="email" id="quoteEmail" class="form-control" placeholder="name@company.com" required style="width: 100%; padding: 0.5rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem;">
+              <!-- Row 3: Phone Number & Email Address -->
+              <div class="quote-form-row-2">
+                <div class="quote-field-group">
+                  <label for="quotePhone">Phone Number <span class="req-star">*</span></label>
+                  <input type="tel" id="quotePhone" placeholder="+91 9876543210" required>
+                </div>
+                <div class="quote-field-group">
+                  <label for="quoteEmail">Email Address <span class="req-star">*</span></label>
+                  <input type="email" id="quoteEmail" placeholder="name@company.com" required>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="quoteCompany" style="display: block; font-size: 0.82rem; font-weight: 700; color: #1e293b; margin-bottom: 0.25rem;">Company Name</label>
-                <input type="text" id="quoteCompany" class="form-control" placeholder="e.g. Apex Industries" style="width: 100%; padding: 0.5rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem;">
+
+              <!-- Row 4: Project Specifications / Requirements -->
+              <div class="quote-field-group">
+                <label for="quoteMessage">Project Specifications / Requirements</label>
+                <textarea id="quoteMessage" rows="3" placeholder="Mention material thickness, dimensions, quantity, or specific drawing details..."></textarea>
               </div>
-            </div>
 
-            <div class="form-group" style="margin-bottom: 0.95rem;">
-              <label for="quoteMessage" style="display: block; font-size: 0.82rem; font-weight: 700; color: #1e293b; margin-bottom: 0.25rem;">Quantity / Requirements</label>
-              <textarea id="quoteMessage" class="form-control" rows="2" placeholder="Quantity, tank height, medium, operating temp/pressure..." style="width: 100%; padding: 0.45rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.86rem; resize: vertical; min-height: 48px;"></textarea>
-            </div>
+              <div id="quoteSuccessMsg" style="display: none; padding: 0.65rem 0.85rem; background: #ecfdf5; border: 1px solid #10b981; border-radius: 8px; color: #065f46; font-size: 0.86rem; font-weight: 600; margin-bottom: 0.85rem; text-align: center;">
+                <i class="fas fa-check-circle" style="color: #10b981; margin-right: 5px;"></i>
+                Quotation request submitted! Our engineering team will contact you shortly.
+              </div>
 
-            <div id="quoteSuccessMsg" style="display: none; padding: 0.65rem 0.85rem; background: #ecfdf5; border: 1px solid #10b981; border-radius: 8px; color: #065f46; font-size: 0.86rem; font-weight: 600; margin-bottom: 0.75rem; text-align: center;">
-              <i class="fas fa-check-circle" style="color: #10b981; margin-right: 5px;"></i>
-              Quotation request submitted! Our sales team will contact you shortly.
-            </div>
-
-            <div style="display: flex; gap: 0.65rem;">
-              <button type="submit" class="btn btn-primary" id="quoteSubmitBtn" style="flex: 1; justify-content: center; padding: 0.65rem 1.25rem; font-size: 0.92rem; font-weight: 700; background: #e5242c; color: #ffffff; border: none; border-radius: 8px; cursor: pointer;">
-                <i class="fas fa-paper-plane" style="margin-right: 6px;"></i> Submit Quote Request
-              </button>
-              <button type="button" class="btn btn-secondary" onclick="closeQuoteModal()" style="padding: 0.65rem 1rem; font-size: 0.88rem; border-radius: 8px; cursor: pointer;">Cancel</button>
-            </div>
-          </form>
+              <!-- Centered Submit Button -->
+              <div class="quote-submit-center-wrap">
+                <button type="submit" class="quote-btn-submit-red" id="quoteSubmitBtn">
+                  <i class="fas fa-paper-plane"></i> Submit Quote Request
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     `;
@@ -1010,7 +1014,6 @@ window.openQuoteModal = function (productName) {
   }
 
   const prodSelect = document.getElementById('quoteProduct');
-  const titleEl = document.getElementById('quoteModalTitle');
   const successMsg = document.getElementById('quoteSuccessMsg');
   const form = document.getElementById('quoteModalForm');
 
@@ -1032,7 +1035,6 @@ window.openQuoteModal = function (productName) {
     }
 
     if (!matched) {
-      // Create or select first matching option
       for (let i = 0; i < prodSelect.options.length; i++) {
         const opt = prodSelect.options[i];
         if (opt.value && (productName.includes(opt.value.split(' ')[0]) || opt.value.includes(productName.split(' ')[0]))) {
@@ -1042,11 +1044,8 @@ window.openQuoteModal = function (productName) {
         }
       }
     }
-
-    if (titleEl) titleEl.textContent = `Get Quote: ${productName}`;
   } else {
     if (prodSelect) prodSelect.selectedIndex = 0;
-    if (titleEl) titleEl.textContent = 'Request a Product Quotation';
   }
 
   if (modal) {
@@ -1090,7 +1089,7 @@ window.handleQuoteModalSubmit = function (e) {
 
     setTimeout(() => {
       closeQuoteModal();
-      if (btn) btn.innerHTML = '<i class="fas fa-paper-plane" style="margin-right: 6px;"></i> Submit Quote Request';
+      if (btn) btn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Quote Request';
     }, 3200);
   }, 700);
 };
