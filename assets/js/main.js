@@ -544,8 +544,9 @@ function initPageScripts() {
       let rTimer = null;
 
       function getReviewsPerPage() {
-        if (window.innerWidth <= 992) return 1;
-        return 2;
+        if (window.innerWidth <= 640) return 1;
+        if (window.innerWidth <= 992) return 2;
+        return 3;
       }
 
       function updateReviewTrackPosition(withAnimation = true) {
@@ -1094,3 +1095,36 @@ window.handleQuoteModalSubmit = function (e) {
   }, 700);
 };
 
+// Global Scroll Entrance Animator for Animated Sections (e.g. .anim-section-bento)
+document.addEventListener('DOMContentLoaded', function () {
+  if ('IntersectionObserver' in window) {
+    const globalSectionObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -30px 0px'
+    });
+
+    const animSections = document.querySelectorAll(
+      '.anim-section-bento, .anim-section-services, .anim-section-mission, .anim-section-industries, .anim-section-overview'
+    );
+    animSections.forEach(sec => globalSectionObserver.observe(sec));
+
+    // Viewport fallback
+    setTimeout(() => {
+      animSections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
+          sec.classList.add('in-view');
+        }
+      });
+    }, 100);
+  } else {
+    document.querySelectorAll('.anim-section-bento').forEach(el => el.classList.add('in-view'));
+  }
+});
