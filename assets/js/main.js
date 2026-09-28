@@ -1111,7 +1111,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const animSections = document.querySelectorAll(
-      '.anim-section-bento, .anim-section-services, .anim-section-mission, .anim-section-industries, .anim-section-overview'
+      '.anim-section-bento, .anim-section-services, .anim-section-mission, .anim-section-industries, .anim-section-overview, .anim-section-stats'
     );
     animSections.forEach(sec => globalSectionObserver.observe(sec));
 
